@@ -36,7 +36,7 @@ void Lista<T>::insertar_en(int pos)
     Nodo<T> *temp1 = temp ->next;
     if (pos < 1 || pos > m_num_nodos)
     {
-        cout << "Fuera de rango" << endl;
+        cout << "\nFuera de rango" << endl;
     }
     else if (pos == 1)
     {
@@ -66,7 +66,25 @@ template <typename T>
 
 void Lista<T>::tomar(int pos)
 {
+    cout << "\n";
+    Nodo<T> *temp = m_inicio;
 
+    if (pos < 1 || pos > m_num_nodos)
+    {
+        cout << "\n-1" << endl;
+    }
+    else
+    {
+        for (int i = 1 ; i<= pos; i++)
+        {
+            if (i == pos)
+            {
+                temp->imprime_n();
+            }
+            temp = temp->next;
+        }
+        cout << "\n";
+    }
 }
 
 template <typename T>
@@ -91,13 +109,14 @@ void Lista<T>::buscar(T data_)
     {
         cout << "\n-1" << endl;
     }
-    cout << endl << endl;
+    cout << endl;
 }
 
 template <typename T>
 
 void Lista<T>::eliminar(int pos)
 {
+    cout << "\n";
     Nodo<T> *temp = m_inicio;
     Nodo<T> *temp1 = temp->next;
     if (pos < 1 || pos > m_num_nodos)
@@ -108,7 +127,7 @@ void Lista<T>::eliminar(int pos)
     {
         for (int i = 1; i <= pos; i++)
         {
-            if (i == pos)
+            if (i == pos-1)
             {
                 Nodo<T> *aux_nodo = temp1;
                 temp->next = temp1->next;
@@ -123,9 +142,30 @@ void Lista<T>::eliminar(int pos)
 
 template <typename T>
 
-void Lista<T>::modificar()
+void Lista<T>::modificar(int pos)
 {
+    cout << "\n";
+    Nodo<T> *temp = m_inicio;
+    Nodo<T> *temp1 = temp->next;
+    T cancion;
 
+    if (pos < 1 || pos > m_num_nodos)
+    {
+        cout << "\n-1" << endl;
+    }
+    else
+    {
+        for (int i = 1 ; i<= pos; i++)
+        {
+            if (i == pos)
+            {
+                cout << "Ingresa la cancion: ";
+                cin >> cancion;
+            }
+            temp = temp->next;
+        }
+        cout << "\n";
+    }
 }
 
 template <typename T>
@@ -141,13 +181,15 @@ void Lista<T>::purgar()
 {
     m_inicio->purga();
     m_inicio = 0;
+    m_num_nodos=0;
+    cout << "\nPurga realizada exitosamente. \n";
 }
 
 template <typename T>
 
 void Lista<T>::tamanio()
 {
-    cout << "\nHay " << m_num_nodos << " elementos en la lista." << endl;
+    cout << "Hay " << m_num_nodos << " elementos en la lista." << endl;
 }
 
 template <typename T>
@@ -160,6 +202,7 @@ void Lista<T>::tomar1()
 template<typename T>
 void Lista<T>::imprime()
 {
+    cout << "\n";
     Nodo<T> *temp = m_inicio;
     if (!m_inicio)
     {
