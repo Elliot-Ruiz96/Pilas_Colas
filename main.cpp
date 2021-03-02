@@ -21,10 +21,12 @@ int main()
     lista.teclado(dim);
     lista.imprime();
 
-    cout << "\n2. Insertar en: \n" << endl;
-    cin >> pos;
-    lista.insertar_en(pos);
-    lista.imprime();
+//    cout << "\n2. Insertar en: \n" << endl;
+//    cin >> pos;
+//    cout << "\nIngresa la cancion: \n";
+//    cin >> cancion;
+//    lista.insertar_en(pos, cancion);
+//    lista.imprime();
 
     cout << "\n3. Tomar: \n" << endl;
     cin >> pos;
@@ -42,10 +44,10 @@ int main()
     cout << "\n6. Mostar todo: \n" << endl;
     lista.imprime();
 
-    cout << "\n7. Modificar: \n" << endl; //Pendiente
-    cin >> pos;
-    lista.modificar(pos);
-    lista.imprime();
+//    cout << "\n7. Modificar: \n" << endl;
+//    cin >> pos;
+//    lista.modificar(pos);
+//    lista.imprime();
 
     cout << "\n8. Vacio: \n" << endl;
     lista.vacio();
@@ -58,7 +60,7 @@ int main()
     lista.tamanio();
     lista.imprime();
 
-    cout << "\n11. Tomar primero: \n" << endl; //Pendiente
+    cout << "\n11. Tomar primero: \n" << endl;
     lista.tomar1();
 
     return 0;
