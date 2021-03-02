@@ -21,7 +21,7 @@ public:
     void tomar(int);
     void buscar(T);
     void eliminar(int);
-    void modificar();
+    void modificar(int);
     void vacio();
     void purgar();
     void tamanio();
