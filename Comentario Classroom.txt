@@ -1,0 +1,20 @@
+No regresas datos en "buscar", "eliminar", "tomar", solo los imprimes.
+
+Tu "insertar En" está mal, dado a que estás pidiendo el dato dentro de la misma función y en esta estás pidiendo templates, 
+estás diciendo que vas a utilizar tipo de datos tipo T, no strings, por lo que creas un nuevo nodo pero este no tiene datos.
+
+En eliminar, en el caso de pos == 1, solo mueves el nodo de inicio, no eliminas el dato, quedando el dato volando en la deriba todo abandonado, 
+asimismo, tampoco decrementas el contador.
+
+No está implementado modificar.
+
+El error que mencionas en tu reporte, tienes un ciclo que imprime todo: 
+la condición que pusiste no era necesaria, ya que hace que se quede atorado, 
+solo tenías que poner temp = temp->next y listo, sin la condición, dado que el while sabe cuando terminar el recorrido.
+
+observaciones: El while de la línea 34 solo recorre, no tiene utilidad, pudiste haberlo omitido.
+
+Con algunas fallas en lo mencionado anteriormente, 
+además de que recuerda que en las funciones que regresas datos y solo muestras, 
+quien usa la lista no se da cuenta si fue bien o mal en ese método en caso de regresar un valor, 
+por eso es importante regresar en caso de ser necesario.
