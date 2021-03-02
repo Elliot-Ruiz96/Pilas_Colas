@@ -28,7 +28,6 @@ public:
     void tomar1();
     void imprime();
     void teclado(int);
-    void teclado2(int);
     void insertar_final(T);
 private:
     Nodo<T> *m_inicio;
