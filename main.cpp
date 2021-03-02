@@ -19,6 +19,7 @@ int main()
 
     cout << "\n1. Insertar. \n" << endl;
     lista.teclado(dim);
+    lista.imprime();
 
     cout << "\n2. Insertar en: \n" << endl;
     cin >> pos;
