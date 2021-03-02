@@ -29,35 +29,24 @@ void Lista<T>::insertar_inicio(T data_)
 
 template <typename T>
 
-void Lista<T>::insertar_en(int pos)
+void Lista<T>::insertar_en(int pos, T data_)
 {
     T cancion;
+    Nodo<T> *nodo_elegido = new Nodo<T> (data_);
     Nodo<T> *temp = m_inicio;
-    Nodo<T> *temp1 = temp ->next;
     if (pos < 1 || pos > m_num_nodos)
     {
-        cout << "\nFuera de rango" << endl;
-    }
-    else if (pos == 1)
-    {
-        cout << "Ingresa la cancion " <<endl;
-        cin >> cancion;
-        m_inicio = temp -> next;
+        cout << "\n-1" << endl;
     }
     else
     {
-        for (int i = 2; i <= pos; i++)
+        for (int i = 1 ; i<= pos; i++)
         {
             if (i == pos)
             {
-                cout << "Ingresa la cancion " <<endl;
-                cin >> cancion;
-                Nodo<T> *aux_nodo = temp1;
-                temp->next = temp1->next;
-                m_num_nodos++;
+                temp = temp->next;
             }
-            temp = temp->next;
-            temp1 = temp1->next;
+            temp->next=nodo_elegido;
         }
     }
 }
@@ -146,7 +135,6 @@ void Lista<T>::modificar(int pos)
 {
     cout << "\n";
     Nodo<T> *temp = m_inicio;
-    Nodo<T> *temp1 = temp->next;
     T cancion;
 
     if (pos < 1 || pos > m_num_nodos)
@@ -159,8 +147,8 @@ void Lista<T>::modificar(int pos)
         {
             if (i == pos)
             {
-                cout << "Ingresa la cancion: ";
-                cin >> cancion;
+
+
             }
             temp = temp->next;
         }
