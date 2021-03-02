@@ -17,7 +17,7 @@ public:
     Lista();
     ~Lista();
     void insertar_inicio(T);
-    void insertar_en(int);
+    void insertar_en(int, T);
     void tomar(int);
     void buscar(T);
     void eliminar(int);
