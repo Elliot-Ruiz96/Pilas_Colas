@@ -196,7 +196,11 @@ template <typename T>
 
 void Lista<T>::tomar1()
 {
+    cout << "\n";
+    Nodo<T> *temp = m_inicio;
 
+    temp->imprime_n();
+    cout << "\n";
 }
 
 template<typename T>
