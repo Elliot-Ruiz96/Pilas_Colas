@@ -170,6 +170,7 @@ void Lista<T>::imprime()
         while (temp)
         {
             temp->imprime_n();
+            temp = temp->next;
             if (!temp->next)
             {
                 cout << "NULL";
