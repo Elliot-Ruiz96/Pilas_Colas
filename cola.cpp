@@ -3,7 +3,3 @@
 
 using namespace std;
 
-struct cola : public Lista
-{
-
-};
