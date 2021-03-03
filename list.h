@@ -32,6 +32,7 @@ public:
 private:
     Nodo<T> *m_inicio;
     int m_num_nodos;
+
 };
 
 #endif // LIST_H
