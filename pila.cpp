@@ -15,6 +15,7 @@ struct Nodo
 
 void apilar(Nodo *&, int);
 void desapilar(Nodo *&, int &);
+void cimaP(Nodo *, int);
 
 int pila()
 {
@@ -27,6 +28,8 @@ int pila()
         cout << "Digita un numero: " << endl;
         cin >> dato;
         apilar(pila, dato);
+
+        cimaP(pila, dato);
 
         cout << "Desea agregar otro elemento a Pila (s/n)? " << endl;
         cin >> rpt;
@@ -47,6 +50,7 @@ int pila()
         {
             cout << dato << "." << endl;
         }
+        cimaP(pila, dato);
     }
 
     getch();
@@ -81,4 +85,11 @@ void desapilar(Nodo *&pila, int &n)
     pila = aux->siguiente;
     // 4 Eliminar aux
     delete aux;
+}
+
+void cimaP(Nodo *pila, int n)
+{
+    Nodo *muestraC = pila;
+    n = muestraC->dato;
+    cout << "\nDato en la cima: " << n << "\n" << endl;
 }
