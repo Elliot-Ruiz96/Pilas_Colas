@@ -154,13 +154,14 @@ void cimaP1(Nodo *pila1, char n1)
 
 void validacion(Nodo *&pila, char &n, Nodo *&pila1, char &n1)
 {
-    Nodo *aux = pila;
-    n = aux->dato;
-    pila = aux->siguiente;
+    // Como hacer que empiece a leer desde el final de la pila?
+    Nodo *aux2 = pila;
+    n = aux2->dato;
+    pila = aux2->siguiente;
 
-    Nodo *aux1 = pila1;
-    n1 = aux1->dato1;
-    pila1 = aux1->siguiente1;
+    Nodo *aux3 = pila1;
+    n1 = aux3->dato1;
+    pila1 = aux3->siguiente1;
 
     cout << n << n1 << endl;
 
