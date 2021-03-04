@@ -9,16 +9,20 @@ struct Nodo
     char dato;
     // Puntero de tipo nodo ya que apunta hacia el siguiente nodo
     Nodo *siguiente;
+    Nodo *siguiente2;
 };
 
 void apilar(Nodo *&, char);
+void encolar1(Nodo *&, Nodo *&, char);
 void desapilar(Nodo *&, char &);
 void cimaP(Nodo *, char);
-
+bool cola_vacia1(Nodo *);
 
 int main()
 {
     Nodo *pila = NULL;
+    Nodo *pila1 = NULL;
+    Nodo *ultimo = NULL;
     char dato;
     int num, num_nodos;
 
@@ -34,6 +38,10 @@ int main()
             cin >> dato;
             apilar(pila, dato);
             cimaP(pila, dato);
+            if(num_nodos > num/2)
+            {
+                encolar1(pila1, ultimo, dato);
+            }
         }
     }
     else
@@ -74,6 +82,25 @@ void apilar(Nodo *&pila, char n)
     pila = nuevo_nodo;
 }
 
+void encolar1(Nodo *&pila1, Nodo *&ultimo, char n1)
+{
+    // 1 Crear espacio en memoria para el nodo
+    Nodo *nuevo_nodo2 = new Nodo();
+    // 2 Asignar el nuevo noodo al dato que se inserta
+    nuevo_nodo2->siguiente2 = NULL;
+    nuevo_nodo2->dato = n1;
+    // 3 Asignar los punteros frente y fin hacia el nuevo nodo
+    if(cola_vacia1(pila1))
+    {
+        pila1 = nuevo_nodo2;
+    }
+    else
+    {
+        ultimo -> siguiente2 = nuevo_nodo2;
+    }
+    ultimo = nuevo_nodo2;
+}
+
 // Para quitar elementos
 // n pasa por referencia debido a que va a variar
 void desapilar(Nodo *&pila, char &n)
@@ -93,4 +120,9 @@ void cimaP(Nodo *pila, char n)
     Nodo *muestraC = pila;
     n = muestraC->dato;
     cout << "\nCaracter en la cima: " << n << "\n" << endl;
+}
+
+bool cola_vacia1(Nodo *pila1)
+{
+    return (pila1 == NULL)? true : false;
 }
