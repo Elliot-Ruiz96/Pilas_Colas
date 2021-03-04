@@ -16,11 +16,9 @@ struct Nodo
 void encolar(Nodo *&, Nodo *&, int);
 bool cola_vacia(Nodo *);
 void desencolar(Nodo *&, Nodo *&, int &);
+void cimaC(Nodo *, int);
 
-
-//
-
-int cola()
+int main()
 {
     Nodo *frente = NULL;
     Nodo *fin = NULL;
@@ -32,6 +30,8 @@ int cola()
         cout << "\nDigite un numero: " << endl;
         cin >> dato;
         encolar(frente, fin, dato);
+
+        cimaC(frente, dato);
 
         cout << "\nDesea agregar otro elemento a Pila (s/n)? " << endl;
         cin >> rpt;
@@ -51,6 +51,7 @@ int cola()
         {
             cout << dato << "." << endl;
         }
+        cimaC(frente, dato);
     }
 
     getch();
@@ -111,4 +112,11 @@ void desencolar(Nodo *&frente, Nodo *&fin, int &n)
         frente = frente->siguiente;
     }
     delete aux;
+}
+
+void cimaC(Nodo *frente, int n)
+{
+    Nodo *muestraC = frente;
+    n = muestraC->dato;
+    cout << "\nDato en la cima: " << n << "\n" << endl;
 }
