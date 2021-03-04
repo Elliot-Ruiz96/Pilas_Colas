@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main()
+int canciones()
 {
     Lista<string> lista;
     string cancion;
