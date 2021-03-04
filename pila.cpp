@@ -2,30 +2,29 @@
 #include <conio.h>
 #include <stdlib.h>
 
-//#include "list.h"
-
 using namespace std;
 
 struct Nodo
 {
-    int dato;
+    char dato;
     // Puntero de tipo nodo ya que apunta hacia el siguiente nodo
     Nodo *siguiente;
 };
 
-void apilar(Nodo *&, int);
-void desapilar(Nodo *&, int &);
-void cimaP(Nodo *, int);
+void apilar(Nodo *&, char);
+void desapilar(Nodo *&, char &);
+void cimaP(Nodo *, char);
+
 
 int pila()
 {
     Nodo *pila = NULL;
-    int dato;
+    char dato;
     char rpt;
 
     do
     {
-        cout << "Digita un numero: " << endl;
+        cout << "Digite un caracter([] () {}): " << endl;
         cin >> dato;
         apilar(pila, dato);
 
@@ -35,8 +34,6 @@ int pila()
         cin >> rpt;
     }
     while((rpt == 'S')||(rpt == 's'));
-
-    cout <<"\nSacando elementos de la pila: " << endl;
 
     // Mientras que no sea el final de la pila
     while (pila != NULL)
@@ -50,6 +47,7 @@ int pila()
         {
             cout << dato << "." << endl;
         }
+        cout <<"\nSacando elementos de la pila: " << endl;
         cimaP(pila, dato);
     }
 
@@ -59,7 +57,7 @@ int pila()
 
 // Para insertar elementos
 // *&pila Cambia varias veces dentro de la funcion, n dato a agregar
-void apilar(Nodo *&pila, int n)
+void apilar(Nodo *&pila, char n)
 {
     // 1 Crear el espacio en menoria para el nodo
     Nodo *nuevo_nodo = new Nodo();
@@ -75,7 +73,7 @@ void apilar(Nodo *&pila, int n)
 
 // Para quitar elementos
 // n pasa por referencia debido a que va a variar
-void desapilar(Nodo *&pila, int &n)
+void desapilar(Nodo *&pila, char &n)
 {
     // 1 Crear una variable *aux de tipo Nodo
     Nodo *aux = pila;
@@ -87,9 +85,9 @@ void desapilar(Nodo *&pila, int &n)
     delete aux;
 }
 
-void cimaP(Nodo *pila, int n)
+void cimaP(Nodo *pila, char n)
 {
     Nodo *muestraC = pila;
     n = muestraC->dato;
-    cout << "\nDato en la cima: " << n << "\n" << endl;
+    cout << "\nCaracter en la cima: " << n << "\n" << endl;
 }
