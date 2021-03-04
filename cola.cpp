@@ -16,7 +16,7 @@ bool cola_vacia(Nodo *);
 void desencolar(Nodo *&, Nodo *&, string &);
 void cimaC(Nodo *, string);
 
-
+// int main
 int cola()
 {
     Nodo *frente = NULL;
