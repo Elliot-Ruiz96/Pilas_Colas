@@ -13,16 +13,15 @@ struct Nodo
 };
 
 void apilar(Nodo *&, char);
-void encolar1(Nodo *&, Nodo *&, char);
+void apilar1(Nodo *&, char);
 void desapilar(Nodo *&, char &);
 void cimaP(Nodo *, char);
-bool cola_vacia1(Nodo *);
+void validacion(Nodo *&, char &, Nodo *&, char &);
 
 int main()
 {
     Nodo *pila = NULL;
     Nodo *pila1 = NULL;
-    Nodo *ultimo = NULL;
     char dato;
     int num, num_nodos;
 
@@ -37,16 +36,21 @@ int main()
         {
             cin >> dato;
             apilar(pila, dato);
-            cimaP(pila, dato);
             if(num_nodos > num/2)
             {
-                encolar1(pila1, ultimo, dato);
+                 apilar1(pila1, dato);
             }
         }
     }
     else
     {
         cout << "Incorrecto, no podras abrir y cerrar todos los caracteres" << endl;
+    }
+
+    cout << "\nValidacion de la apertura y cierre de caracteres: " << endl;
+    while(pila!= NULL && pila1!= NULL)
+    {
+        validacion(pila, dato, pila1, dato);
     }
 
     // Mientras que no sea el final de la pila
@@ -82,23 +86,12 @@ void apilar(Nodo *&pila, char n)
     pila = nuevo_nodo;
 }
 
-void encolar1(Nodo *&pila1, Nodo *&ultimo, char n1)
+void apilar1(Nodo *&pila1, char n1)
 {
-    // 1 Crear espacio en memoria para el nodo
-    Nodo *nuevo_nodo2 = new Nodo();
-    // 2 Asignar el nuevo noodo al dato que se inserta
-    nuevo_nodo2->siguiente2 = NULL;
-    nuevo_nodo2->dato = n1;
-    // 3 Asignar los punteros frente y fin hacia el nuevo nodo
-    if(cola_vacia1(pila1))
-    {
-        pila1 = nuevo_nodo2;
-    }
-    else
-    {
-        ultimo -> siguiente2 = nuevo_nodo2;
-    }
-    ultimo = nuevo_nodo2;
+    Nodo *nuevo_nodo1 = new Nodo();
+    nuevo_nodo1->dato = n1;
+    nuevo_nodo1->siguiente2 = pila1;
+    pila1 = nuevo_nodo1;
 }
 
 // Para quitar elementos
@@ -122,7 +115,33 @@ void cimaP(Nodo *pila, char n)
     cout << "\nCaracter en la cima: " << n << "\n" << endl;
 }
 
-bool cola_vacia1(Nodo *pila1)
+void validacion(Nodo *&pila, char &n, Nodo *&pila1, char &n1)
 {
-    return (pila1 == NULL)? true : false;
+    Nodo *aux = pila;
+    n = aux->dato;
+    pila = aux->siguiente;
+
+    Nodo *aux1 = pila1;
+    n1 = aux1->dato;
+    pila1 = aux1->siguiente2;
+
+    cout << n << n1 << endl;
+
+    if (!(n == '(' && n1 == ')'))
+    {
+        cout << "Es correcto." << endl;
+    }
+    if (!(n == '[' && n1 == ']'))
+    {
+        cout << "Es correcto." << endl;
+    }
+    if (!(n == '{' && n1 == '}'))
+    {
+        cout << "Es correcto." << endl;
+    }
+    else
+    {
+        cout << "Es incorrecto." << endl;
+    }
+
 }
