@@ -16,26 +16,33 @@ void desapilar(Nodo *&, char &);
 void cimaP(Nodo *, char);
 
 
-int pila()
+int main()
 {
     Nodo *pila = NULL;
     char dato;
-    char rpt;
+    int num, num_nodos;
 
-    do
+    cout << "\nBienvenido al analizador de sintaxis" << endl;
+    cout << "\nIngrese el numero de caracteres a verificar: " << endl;
+    cin >> num;
+
+    if(num % 2 == 0)
     {
         cout << "Digite un caracter([] () {}): " << endl;
-        cin >> dato;
-        apilar(pila, dato);
-
-        cimaP(pila, dato);
-
-        cout << "Desea agregar otro elemento a Pila (s/n)? " << endl;
-        cin >> rpt;
+        for (num_nodos = 1; num_nodos <= num ; num_nodos++)
+        {
+            cin >> dato;
+            apilar(pila, dato);
+            cimaP(pila, dato);
+        }
     }
-    while((rpt == 'S')||(rpt == 's'));
+    else
+    {
+        cout << "Incorrecto, no podras abrir y cerrar todos los caracteres" << endl;
+    }
 
     // Mientras que no sea el final de la pila
+    cout <<"\nElminando todos los caracteres desde la cima: " << endl;
     while (pila != NULL)
     {
         desapilar(pila, dato);
@@ -47,8 +54,6 @@ int pila()
         {
             cout << dato << "." << endl;
         }
-        cout <<"\nSacando elementos de la pila: " << endl;
-        cimaP(pila, dato);
     }
 
     getch();
@@ -67,8 +72,6 @@ void apilar(Nodo *&pila, char n)
     nuevo_nodo->siguiente = pila;
     // 4 Asignar el nuevo nodo a pila
     pila = nuevo_nodo;
-
-    cout << "\n\tElemento " << n << " agregado a PILA corretamente." << endl;
 }
 
 // Para quitar elementos
