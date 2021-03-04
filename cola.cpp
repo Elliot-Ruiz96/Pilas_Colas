@@ -17,7 +17,7 @@ void desencolar(Nodo *&, Nodo *&, string &);
 void cimaC(Nodo *, string);
 
 
-int main()
+int cola()
 {
     Nodo *frente = NULL;
     Nodo *fin = NULL;
@@ -63,7 +63,9 @@ int main()
     }
     while(opcion!=4);
     cout << "Adios!" << endl;
+
     getch();
+    return 0;
 }
 
 // Para insertar elementos
